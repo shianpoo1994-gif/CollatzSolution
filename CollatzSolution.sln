@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collatz.Api", "Collatz.Api\Collatz.Api.csproj", "{1C0E535F-6CBA-4BBE-9577-84DD01ECF624}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collatz.Core", "Collatz.Core\Collatz.Core.csproj", "{557F946B-3611-4D90-B167-C514AC77AE6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85AC9240-0C1E-46A1-8BF1-3AF244AC2A59}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C0E535F-6CBA-4BBE-9577-84DD01ECF624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0E535F-6CBA-4BBE-9577-84DD01ECF624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0E535F-6CBA-4BBE-9577-84DD01ECF624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0E535F-6CBA-4BBE-9577-84DD01ECF624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{557F946B-3611-4D90-B167-C514AC77AE6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{557F946B-3611-4D90-B167-C514AC77AE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{557F946B-3611-4D90-B167-C514AC77AE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{557F946B-3611-4D90-B167-C514AC77AE6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACF4748F-3483-4582-AC7A-42185FB6AA7E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Collatz Rechner</title>
+    <style>
+        body  { font-family: sans-serif; margin: 20px; }
+        input { width: 100%; padding: 8px; font-size: 16px; }
+        button { padding: 8px 12px; margin-top: 10px; }
+        .err { color: #c00; margin-top: 10px; }
+        .row { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Collatz Rechner</h2>
+    <label>Bitte geben Sie n (maximal 1000 Ziffern) ein</label>
+    <input id= "n" maxlength="1000" />
+    <div>
+        <button onclick="calc()">Rechnen</button>
+        <button onclick="resetUi()">Leeren</button>
+    </div>
+
+    <div id="err" class="err"></div>
+
+    <div class="row">Anzahl der 3k+1 Operationen: <span id="odd"></span></div>
+    <div class="row">Anzahl der 2k Operationen: <span id="even"></span> </div>
+    <div class="row">Maximales Element: <span id="max"></span></div>
+
+    <script>
+        async function calc() {
+            const input = document.getElementById("n").value.trim();
+
+            document.getElementById("err").innerText = "";
+
+            //GUI Validate
+            if (!input) return showErr("Bitte geben Sie eine natürliche Zahl ein.");
+            if (!/^\d+$/.test(input)) return showErr("Es sind nur dezimale Ziffern erlaubt.");
+
+            //Use web api(validate in the backend)
+            const resp = await fetch("/api/collatz", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ n: input })
+            });
+
+            const data = await resp.json();
+
+            if (!resp.ok || !data.ok) {
+                return showErr(data.error || "Anfrage fehlgeschlagen");
+            }
+
+            document.getElementById("odd").innerText = data.oddOps;
+            document.getElementById("even").innerText = data.evenOps;
+            document.getElementById("max").innerText = data.maxValue;
+        }
+
+        function resetUi() {
+            document.getElementById("n").value = "";
+            document.getElementById("odd").innerText = "-";
+            document.getElementById("even").innerText = "-";
+            document.getElementById("max").innerText = "-";
+            document.getElementById("err").innerText = "";
+            document.getElementById("n").focus();
+        }
+
+        function showErr(msg) {
+            document.getElementById("err").innerText = msg;
+        }
+    </script>
+</body>
+</html>
